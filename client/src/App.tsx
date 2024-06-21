@@ -1,39 +1,50 @@
 import { Outlet } from "react-router-dom";
 import NaviBar from "./Header/NaviBar";
-import { ThemeProvider, createTheme } from "@mui/material";
-import { useAppSelector } from "./app/store/store";
-import { getThemeMode } from "./Header/headerSlice";
+import { useAppDispatch } from "./app/store/store";
+import { useEffect } from "react";
+import { fetchCurrentUser } from "./app/account/accountSlice";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
-const lightTheme = createTheme({
-  palette: {
-    primary: {
-      main: "#0077b6",
-    },
-    background: {
-      default: "#90E0EF",
-    },
-  },
-});
+// import { ThemeProvider, createTheme } from "@mui/material";
 
-const darkTheme = createTheme({
-  palette: {
-    primary: {
-      main: "#051923",
-    },
-    background: {
-      default: "#90E0EF",
-    },
-  },
-});
+// const lightTheme = createTheme({
+//   palette: {
+//     primary: {
+//       main: "#0077b6",
+//     },
+//     background: {
+//       default: "#90E0EF",
+//     },
+//   },
+// });
+
+// const darkTheme = createTheme({
+//   palette: {
+//     primary: {
+//       main: "#051923",
+//     },
+//     background: {
+//       default: "#90E0EF",
+//     },
+//   },
+// });
 
 function App() {
-  const getTheme = useAppSelector(getThemeMode);
-  console.log(getTheme);
+  const dispatch = useAppDispatch();
+  // const getTheme = useAppSelector(getThemeMode);
+  // console.log(getTheme);
+
+  useEffect(() => {
+    dispatch(fetchCurrentUser());
+  }, [dispatch]);
+
   return (
-    <ThemeProvider theme={getTheme ? darkTheme : lightTheme}>
+    <>
+      <ToastContainer position="bottom-right" hideProgressBar theme="colored" />
       <NaviBar />
       <Outlet />
-    </ThemeProvider>
+    </>
   );
 }
 

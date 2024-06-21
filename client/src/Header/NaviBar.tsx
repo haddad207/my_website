@@ -7,42 +7,33 @@ import Typography from "@mui/material/Typography";
 import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
-import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
-// import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
-import myPhoto from "../assets/images/my_photo.jpg";
-import useWindowDimensions from "../utils/windowDimensions.tsx";
+import useWindowDimensions from "../utils/windowDimensions";
+import { NavLink, useNavigate } from "react-router-dom";
+import { useAppSelector } from "../app/store/store";
 
-const pages = ["Products", "Pricing", "Blog"];
-const settings = ["Profile", "Account", "Dashboard", "Logout"];
+const pages = ["Resume"];
 
 function NaviBar() {
-  const { height, width } = useWindowDimensions();
+  const { user } = useAppSelector((state) => state.accout);
+  const navigate = useNavigate();
+  const { height } = useWindowDimensions();
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
-    null
-  );
-  const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(
     null
   );
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
   };
-  const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorElUser(event.currentTarget);
-  };
 
   const handleCloseNavMenu = () => {
+    navigate("/resume");
     setAnchorElNav(null);
   };
 
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
-  };
-
   return (
-    <AppBar>
+    <AppBar position="static" sx={{ mb: 4 }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
@@ -81,16 +72,11 @@ function NaviBar() {
               ))}
             </Menu>
           </Box>
-          {height > 1000 && width > 500 ? (
-            <IconButton onClick={handleOpenUserMenu} sx={{ rp: 0 }}>
-              <Avatar alt="Remy Sharp" src={myPhoto} />
-            </IconButton>
-          ) : null}
           <Typography
             variant="h6"
             noWrap
-            component="a"
-            href="#app-bar-with-responsive-menu"
+            component={NavLink}
+            to="/"
             sx={{
               mr: 2,
               display: { xs: "none", md: "flex" },
@@ -107,8 +93,8 @@ function NaviBar() {
           <Typography
             variant="h5"
             noWrap
-            component="a"
-            href="#app-bar-with-responsive-menu"
+            component={NavLink}
+            to="/"
             sx={{
               mr: 2,
               display: { xs: "flex", md: "none" },
@@ -122,11 +108,6 @@ function NaviBar() {
           >
             Fadi Haddad
           </Typography>
-          {height < 1000 ? (
-            <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-              <Avatar alt="Remy Sharp" src={myPhoto} />
-            </IconButton>
-          ) : null}
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {pages.map((page) => (
               <Button
@@ -138,36 +119,27 @@ function NaviBar() {
               </Button>
             ))}
           </Box>
-
-          <Box sx={{ flexGrow: 0 }}>
-            {/* <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src={myPhoto} />
-              </IconButton>
-            </Tooltip> */}
-            <Menu
-              sx={{ mt: "45px" }}
-              id="menu-appbar"
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
-            >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
-          </Box>
+          {user ? null : height > 1000 ? (
+            <>
+              <Typography
+                textAlign="center"
+                component={NavLink}
+                to="/login"
+                sx={{ p: 2, color: "inherit", textDecoration: "none" }}
+              >
+                Login
+              </Typography>
+              <Typography
+                textAlign="center"
+                component={NavLink}
+                to="/signup"
+                sx={{ p: 2, color: "inherit", textDecoration: "none" }}
+              >
+                Signup
+              </Typography>
+            </>
+          ) : null}
+          <Box sx={{ flexGrow: 0 }}></Box>
         </Toolbar>
       </Container>
     </AppBar>
