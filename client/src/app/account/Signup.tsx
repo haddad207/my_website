@@ -38,6 +38,7 @@ export default function Signup() {
   const {
     register,
     handleSubmit,
+    getValues,
     formState: { errors },
   } = useForm({
     mode: "onTouched",
@@ -62,6 +63,7 @@ export default function Signup() {
             noValidate
             onSubmit={handleSubmit((data) =>
               agent.Account.singup(data).catch((e) => {
+                console.log(e);
                 setValidationErrors((prevState) => ({
                   ...prevState,
                   message: e.data.message,
@@ -121,10 +123,10 @@ export default function Signup() {
                   fullWidth
                   label="Password"
                   type="password"
-                  id="password"
-                  autoComplete="current-password"
                   {...register("password", {
                     required: "Password is required",
+                    min: 6,
+                    max: 20,
                   })}
                   error={!!errors.password}
                   helperText={errors?.password?.message as string}
@@ -134,7 +136,14 @@ export default function Signup() {
                 {validationErrors.message !== "" ? (
                   <Alert severity="error">
                     <AlertTitle>Validation Errors</AlertTitle>
-                    <Typography>{validationErrors.message}</Typography>
+                    <Typography>-{validationErrors.message}</Typography>
+                    {getValues("password").length < 6 ? (
+                      <Typography>
+                        -Password must be greater than or equal to 6 characters
+                      </Typography>
+                    ) : (
+                      ""
+                    )}
                   </Alert>
                 ) : (
                   ""

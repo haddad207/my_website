@@ -23,12 +23,30 @@ const signup = async (req: Request, res: Response, next: NextFunction) => {
   const { name, email, password, username } = req.body;
 
   let exisitingUser;
+  let exisitingEmail;
   try {
     exisitingUser = await User.findOne({ username: username });
+    exisitingEmail = await User.findOne({ email: email });
   } catch (e) {
     const error = new HttpError(
       "Signing up failed. Please try again later",
       500
+    );
+    return next(error);
+  }
+
+  if (exisitingEmail && exisitingUser) {
+    const error = new HttpError(
+      "Email and User already taken, try logging in instead",
+      422
+    );
+    next(error);
+  }
+
+  if (exisitingEmail) {
+    const error = new HttpError(
+      "Email already exists, please try logging in or use a different one",
+      422
     );
     return next(error);
   }
