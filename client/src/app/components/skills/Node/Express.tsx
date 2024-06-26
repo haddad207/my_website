@@ -12,7 +12,7 @@ export default function Express() {
           <Grid container xs={4}>
             <Stack direction="row" paddingLeft={1} alignContent="center">
               <Box alignContent="center">
-                <NavLink to="https://redux.js.org/">
+                <NavLink to="https://expressjs.com/">
                   <img
                     src={ExpressIcon}
                     alt="Redux Icon"

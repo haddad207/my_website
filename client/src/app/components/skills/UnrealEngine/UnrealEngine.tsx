@@ -2,12 +2,9 @@ import { CssBaseline, Container, Grid, Stack, Typography } from "@mui/material";
 import { NavLink } from "react-router-dom";
 import { Item, bull } from "../../../../utils/constants";
 
-import NodeIcon from "../../../../assets/images/node-icon.png";
-import Express from "./Express";
-import NodeNPM from "./NodeNPM";
-import TypeScript from "./TypeScript";
+import UnrealEngineIcon from "../../../../assets/images/unrealengine-icon.png";
 
-export default function Node() {
+export default function UnrealEnginer() {
   return (
     <>
       <CssBaseline />
@@ -17,10 +14,10 @@ export default function Node() {
             <Grid container xs={4}>
               <Stack direction="row">
                 <NavLink to="https://nodejs.org/en">
-                  <img src={NodeIcon} alt="Node Icon" />
+                  <img src={UnrealEngineIcon} alt="Node Icon" />
                 </NavLink>
                 <Typography variant="h3" alignContent="center" paddingLeft={2}>
-                  Node.js
+                  Unreal Engine 5
                 </Typography>
               </Stack>
             </Grid>
@@ -33,9 +30,6 @@ export default function Node() {
           </Grid>
         </Item>
       </Container>
-      <Express />
-      <NodeNPM />
-      <TypeScript />
     </>
   );
 }

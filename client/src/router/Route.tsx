@@ -8,13 +8,13 @@ import ServerError from "../app/errors/ServerError";
 import HomePage from "../app/components/HomePage";
 import ReactInfo from "../app/components/skills/React/ReactInfo";
 import Node from "../app/components/skills/Node/Node";
-import Csharp from "../app/components/skills/Csharp";
-import UnrealEngine from "../app/components/skills/UnrealEngine";
-import Python from "../app/components/skills/Python";
-import Java from "../app/components/skills/Java";
-import Cicd from "../app/components/skills/Cicd";
-import LinuxAnsible from "../app/components/skills/LinuxAnsible";
-import Databases from "../app/components/skills/Databases";
+import Csharp from "../app/components/skills/Csharp/Csharp";
+import UnrealEngine from "../app/components/skills/UnrealEngine/UnrealEngine";
+import Python from "../app/components/skills/Python/Python";
+import Java from "../app/components/skills/Java/Java";
+import Cicd from "../app/components/skills/CICD/Cicd";
+import LinuxAnsible from "../app/components/skills/cmd/LinuxAnsible";
+import Databases from "../app/components/skills/Databases/Databases";
 
 export const router = createBrowserRouter([
   {

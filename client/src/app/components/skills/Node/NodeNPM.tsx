@@ -2,6 +2,7 @@ import { Box, Container, Grid, Stack, Typography } from "@mui/material";
 
 import npmIcon from "../../../../assets/images/npm.png";
 import { Item, bull } from "../../../../utils/constants";
+import { NavLink } from "react-router-dom";
 export default function NodeNPM() {
   return (
     <Container sx={{ paddingTop: 4 }}>
@@ -10,7 +11,9 @@ export default function NodeNPM() {
           <Grid container xs={4}>
             <Stack direction="row" paddingLeft={1} alignContent="center">
               <Box alignContent="center">
-                <img src={npmIcon} alt="Redux Icon" height="80" width="80" />
+                <NavLink to="https://www.npmjs.com/">
+                  <img src={npmIcon} alt="Redux Icon" height="80" width="80" />
+                </NavLink>
               </Box>
               <Typography variant="h3" alignContent="center" paddingLeft={3}>
                 Express Packages
@@ -20,10 +23,10 @@ export default function NodeNPM() {
           <Grid container xs={8}>
             <Stack direction="column">
               <Typography variant="h6">
-                {bull}Axios: Used for making api calls instead of fetch.
+                {bull}Axios: used for making api calls instead of fetch.
               </Typography>
               <Typography variant="h6">
-                {bull}body-parser: Used for parsing incoming requests into json
+                {bull}body-parser: used for parsing incoming requests into json
                 format.{" "}
               </Typography>
               <Typography variant="h6">
@@ -45,8 +48,9 @@ export default function NodeNPM() {
                 {bull}jsonwebtoken: used for creating and validating jwts.
               </Typography>
               <Typography variant="h6">
-                {bull}mongoose: used for database connection, and simplifying
-                the creation of models/schemas when handling database requests.
+                {bull}mongoose: used for connecting to a mongodb database, and
+                simplifying the creation of models/schemas when handling
+                database requests.
               </Typography>
               <Typography variant="h6">
                 {bull}nodemon: simplifies development process, as it helps in

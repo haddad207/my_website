@@ -2,12 +2,13 @@ import { CssBaseline, Container, Grid, Stack, Typography } from "@mui/material";
 import { NavLink } from "react-router-dom";
 import { Item, bull } from "../../../../utils/constants";
 
-import NodeIcon from "../../../../assets/images/node-icon.png";
-import Express from "./Express";
-import NodeNPM from "./NodeNPM";
-import TypeScript from "./TypeScript";
+import CSharpIcon from "../../../../assets/images/csharp-icon.png";
+import AspNet from "./AspNet";
+import Entity from "./Entity";
+import Identity from "./Identity";
+import SignalR from "./SignalR";
 
-export default function Node() {
+export default function Csharp() {
   return (
     <>
       <CssBaseline />
@@ -16,26 +17,27 @@ export default function Node() {
           <Grid container>
             <Grid container xs={4}>
               <Stack direction="row">
-                <NavLink to="https://nodejs.org/en">
-                  <img src={NodeIcon} alt="Node Icon" />
+                <NavLink to="https://dotnet.microsoft.com/en-us/languages/csharp">
+                  <img src={CSharpIcon} alt="csharp-icon.png" />
                 </NavLink>
                 <Typography variant="h3" alignContent="center" paddingLeft={2}>
-                  Node.js
+                  C-Sharp
                 </Typography>
               </Stack>
             </Grid>
             <Grid container xs={8}>
               <Typography variant="h6" alignContent="center">
-                {bull}Node.js is an open-source and cross-platform JavaScript
-                runtime environment.
+                {bull}C# is a general-purpose high-level programming language
+                supporting multiple paradigms.
               </Typography>
             </Grid>
           </Grid>
         </Item>
       </Container>
-      <Express />
-      <NodeNPM />
-      <TypeScript />
+      <AspNet />
+      <Entity />
+      <Identity />
+      <SignalR />
     </>
   );
 }
