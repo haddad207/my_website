@@ -16,7 +16,7 @@ import { useAppSelector } from "../app/store/store";
 const pages = ["Resume"];
 
 function NaviBar() {
-  const { user } = useAppSelector((state) => state.accout);
+  const { user } = useAppSelector((state) => state.account);
   const navigate = useNavigate();
   const { height } = useWindowDimensions();
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
@@ -43,7 +43,6 @@ function NaviBar() {
               aria-controls="menu-appbar"
               aria-haspopup="true"
               onClick={handleOpenNavMenu}
-              color="inherit"
             >
               <MenuIcon />
             </IconButton>

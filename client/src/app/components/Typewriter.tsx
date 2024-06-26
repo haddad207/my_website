@@ -10,12 +10,12 @@ export default function Typewriter() {
         direction="column"
         alignItems="center"
         justifyContent="center"
-        style={{ minHeight: "90vh" }}
+        style={{ minHeight: "100vh" }}
       >
         <Grid item xs={3} justifyContent="center">
           <Typography variant="h2">
             <ReactTyped
-              strings={['console.log("Hello World!")']}
+              strings={['console.log("Hello World!");']}
               typeSpeed={50}
             />
           </Typography>

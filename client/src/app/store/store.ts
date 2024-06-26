@@ -6,7 +6,7 @@ import { accountSlice } from "../account/accountSlice";
 export const store = configureStore({
   reducer: {
     theme: ThemeSlice.reducer,
-    accout: accountSlice.reducer,
+    account: accountSlice.reducer,
   },
 });
 

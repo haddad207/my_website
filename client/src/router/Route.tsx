@@ -6,6 +6,15 @@ import Resume from "../app/components/Resume";
 import NotFound from "../app/errors/NotFound";
 import ServerError from "../app/errors/ServerError";
 import HomePage from "../app/components/HomePage";
+import ReactInfo from "../app/components/skills/React/ReactInfo";
+import TypeScript from "../app/components/skills/TypeScript";
+import Csharp from "../app/components/skills/Csharp";
+import UnrealEngine from "../app/components/skills/UnrealEngine";
+import Python from "../app/components/skills/Python";
+import Java from "../app/components/skills/Java";
+import Cicd from "../app/components/skills/Cicd";
+import LinuxAnsible from "../app/components/skills/LinuxAnsible";
+import Databases from "../app/components/skills/Databases";
 
 export const router = createBrowserRouter([
   {
@@ -18,6 +27,16 @@ export const router = createBrowserRouter([
       { path: "resume", element: <Resume /> },
       { path: "not-found", element: <NotFound /> },
       { path: "server-error", element: <ServerError /> },
+      { path: "react", element: <ReactInfo /> },
+      { path: "ts", element: <TypeScript /> },
+      { path: "csharp", element: <Csharp /> },
+      { path: "ue5", element: <UnrealEngine /> },
+      { path: "python", element: <Python /> },
+      { path: "django", element: <Python /> },
+      { path: "cicd", element: <Cicd /> },
+      { path: "linux-ansible", element: <LinuxAnsible /> },
+      { path: "java", element: <Java /> },
+      { path: "databases", element: <Databases /> },
     ],
   },
 ]);

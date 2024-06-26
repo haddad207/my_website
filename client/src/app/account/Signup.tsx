@@ -5,7 +5,6 @@ import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { NavLink } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import agent from "../api/agent";
@@ -31,7 +30,6 @@ function Copyright() {
 }
 
 // TODO remove, this demo shouldn't need to reset the theme.
-const defaultTheme = createTheme();
 
 export default function Signup() {
   const [validationErrors, setValidationErrors] = useState({ message: "" });
@@ -45,128 +43,126 @@ export default function Signup() {
   });
 
   return (
-    <ThemeProvider theme={defaultTheme}>
-      <Container component="main" maxWidth="xs">
-        <CssBaseline />
+    <Container component="main" maxWidth="xs">
+      <CssBaseline />
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+        }}
+      >
+        <Typography component="h1" variant="h5" sx={{ paddingTop: 2 }}>
+          Sign up
+        </Typography>
         <Box
-          sx={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-          }}
+          component="form"
+          noValidate
+          onSubmit={handleSubmit((data) =>
+            agent.Account.singup(data).catch((e) => {
+              console.log(e);
+              setValidationErrors((prevState) => ({
+                ...prevState,
+                message: e.data.message,
+              }));
+            })
+          )}
+          sx={{ mt: 3 }}
         >
-          <Typography component="h1" variant="h5" sx={{ paddingTop: 2 }}>
-            Sign up
-          </Typography>
-          <Box
-            component="form"
-            noValidate
-            onSubmit={handleSubmit((data) =>
-              agent.Account.singup(data).catch((e) => {
-                console.log(e);
-                setValidationErrors((prevState) => ({
-                  ...prevState,
-                  message: e.data.message,
-                }));
-              })
-            )}
-            sx={{ mt: 3 }}
+          <Grid container spacing={2}>
+            <Grid item xs={12}>
+              <TextField
+                margin="normal"
+                fullWidth
+                required
+                label="Full Name"
+                autoFocus
+                {...register("name", {
+                  required: "Full Name is required",
+                })}
+                error={!!errors.name}
+                helperText={errors?.name?.message as string}
+              />
+            </Grid>
+
+            <Grid item xs={12}>
+              <TextField
+                margin="normal"
+                fullWidth
+                required
+                label="Email"
+                {...register("email", {
+                  required: "Email is required",
+                })}
+                error={!!errors.email}
+                helperText={errors?.email?.message as string}
+              />
+            </Grid>
+
+            <Grid item xs={12}>
+              <TextField
+                margin="normal"
+                required
+                fullWidth
+                label="Username"
+                {...register("username", {
+                  required: "Username is required",
+                })}
+                error={!!errors.username}
+                helperText={errors?.username?.message as string}
+              />
+            </Grid>
+
+            <Grid item xs={12}>
+              <TextField
+                margin="normal"
+                required
+                fullWidth
+                label="Password"
+                type="password"
+                {...register("password", {
+                  required: "Password is required",
+                  min: 6,
+                  max: 20,
+                })}
+                error={!!errors.password}
+                helperText={errors?.password?.message as string}
+              />
+            </Grid>
+            <Grid item xs={12}>
+              {validationErrors.message !== "" ? (
+                <Alert severity="error">
+                  <AlertTitle>Validation Errors</AlertTitle>
+                  <Typography>-{validationErrors.message}</Typography>
+                  {getValues("password").length < 6 ? (
+                    <Typography>
+                      -Password must be greater than or equal to 6 characters
+                    </Typography>
+                  ) : (
+                    ""
+                  )}
+                </Alert>
+              ) : (
+                ""
+              )}
+            </Grid>
+          </Grid>
+          <Button
+            type="submit"
+            fullWidth
+            variant="contained"
+            sx={{ mt: 3, mb: 2 }}
           >
-            <Grid container spacing={2}>
-              <Grid item xs={12}>
-                <TextField
-                  margin="normal"
-                  fullWidth
-                  required
-                  label="Full Name"
-                  autoFocus
-                  {...register("name", {
-                    required: "Full Name is required",
-                  })}
-                  error={!!errors.name}
-                  helperText={errors?.name?.message as string}
-                />
-              </Grid>
-
-              <Grid item xs={12}>
-                <TextField
-                  margin="normal"
-                  fullWidth
-                  required
-                  label="Email"
-                  {...register("email", {
-                    required: "Email is required",
-                  })}
-                  error={!!errors.email}
-                  helperText={errors?.email?.message as string}
-                />
-              </Grid>
-
-              <Grid item xs={12}>
-                <TextField
-                  margin="normal"
-                  required
-                  fullWidth
-                  label="Username"
-                  {...register("username", {
-                    required: "Username is required",
-                  })}
-                  error={!!errors.username}
-                  helperText={errors?.username?.message as string}
-                />
-              </Grid>
-
-              <Grid item xs={12}>
-                <TextField
-                  margin="normal"
-                  required
-                  fullWidth
-                  label="Password"
-                  type="password"
-                  {...register("password", {
-                    required: "Password is required",
-                    min: 6,
-                    max: 20,
-                  })}
-                  error={!!errors.password}
-                  helperText={errors?.password?.message as string}
-                />
-              </Grid>
-              <Grid item xs={12}>
-                {validationErrors.message !== "" ? (
-                  <Alert severity="error">
-                    <AlertTitle>Validation Errors</AlertTitle>
-                    <Typography>-{validationErrors.message}</Typography>
-                    {getValues("password").length < 6 ? (
-                      <Typography>
-                        -Password must be greater than or equal to 6 characters
-                      </Typography>
-                    ) : (
-                      ""
-                    )}
-                  </Alert>
-                ) : (
-                  ""
-                )}
-              </Grid>
+            Sign Up
+          </Button>
+          <Grid container justifyContent="flex-end">
+            <Grid item>
+              <NavLink to="/login">Already have an account? Login</NavLink>
             </Grid>
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              sx={{ mt: 3, mb: 2 }}
-            >
-              Sign Up
-            </Button>
-            <Grid container justifyContent="flex-end">
-              <Grid item>
-                <NavLink to="/login">Already have an account? Login</NavLink>
-              </Grid>
-            </Grid>
-          </Box>
+          </Grid>
         </Box>
-        <Copyright />
-      </Container>
-    </ThemeProvider>
+      </Box>
+      <Copyright />
+    </Container>
   );
 }
