@@ -1,10 +1,10 @@
 import { Box, Container, Grid, Stack, Typography } from "@mui/material";
 
-import ReduxIcon from "../../../../assets/images/react/react-redux.png";
+import ExpressIcon from "../../../../assets/images/expressjs-icon.png";
 import { Item, bull } from "../../../../utils/constants";
 import { NavLink } from "react-router-dom";
 
-export default function ReactRedux() {
+export default function Express() {
   return (
     <Container sx={{ paddingTop: 4 }}>
       <Item>
@@ -14,7 +14,7 @@ export default function ReactRedux() {
               <Box alignContent="center">
                 <NavLink to="https://redux.js.org/">
                   <img
-                    src={ReduxIcon}
+                    src={ExpressIcon}
                     alt="Redux Icon"
                     height="80"
                     width="80"
@@ -22,23 +22,19 @@ export default function ReactRedux() {
                 </NavLink>
               </Box>
               <Typography variant="h3" alignContent="center" paddingLeft={3}>
-                Redux
+                Express
               </Typography>
             </Stack>
           </Grid>
           <Grid container xs={8}>
             <Stack direction="column">
               <Typography variant="h6">
-                {bull}Configuring a store that stores all the required reducers
-                (Slices).
+                {bull}Express is a fast and minimalist web framework for
+                Node.js. Used for creating APIs and Web Applications.
               </Typography>
               <Typography variant="h6">
-                {bull}Creating State Slices using CreateSlice method to manage
-                data across our components. Which also handles api calls via
-                Axios.
-              </Typography>
-              <Typography variant="h6">
-                {bull}Providing the Redux Store to react via Provider.
+                {bull}Express is used to host a backend in this scenario. Bellow
+                you'll find packages I use for creating a backend.
               </Typography>
             </Stack>
           </Grid>

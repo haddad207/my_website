@@ -7,7 +7,7 @@ import NotFound from "../app/errors/NotFound";
 import ServerError from "../app/errors/ServerError";
 import HomePage from "../app/components/HomePage";
 import ReactInfo from "../app/components/skills/React/ReactInfo";
-import TypeScript from "../app/components/skills/TypeScript";
+import Node from "../app/components/skills/Node/Node";
 import Csharp from "../app/components/skills/Csharp";
 import UnrealEngine from "../app/components/skills/UnrealEngine";
 import Python from "../app/components/skills/Python";
@@ -28,7 +28,7 @@ export const router = createBrowserRouter([
       { path: "not-found", element: <NotFound /> },
       { path: "server-error", element: <ServerError /> },
       { path: "react", element: <ReactInfo /> },
-      { path: "ts", element: <TypeScript /> },
+      { path: "node", element: <Node /> },
       { path: "csharp", element: <Csharp /> },
       { path: "ue5", element: <UnrealEngine /> },
       { path: "python", element: <Python /> },

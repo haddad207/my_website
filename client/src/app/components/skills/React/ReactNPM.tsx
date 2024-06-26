@@ -1,10 +1,8 @@
 import { Box, Container, Grid, Stack, Typography } from "@mui/material";
 
-import ReduxIcon from "../../../../assets/images/react/react-redux.png";
+import npmIcon from "../../../../assets/images/npm.png";
 import { Item, bull } from "../../../../utils/constants";
-import { NavLink } from "react-router-dom";
-
-export default function ReactRedux() {
+export default function ReactNPM() {
   return (
     <Container sx={{ paddingTop: 4 }}>
       <Item>
@@ -12,33 +10,29 @@ export default function ReactRedux() {
           <Grid container xs={4}>
             <Stack direction="row" paddingLeft={1} alignContent="center">
               <Box alignContent="center">
-                <NavLink to="https://redux.js.org/">
-                  <img
-                    src={ReduxIcon}
-                    alt="Redux Icon"
-                    height="80"
-                    width="80"
-                  />
-                </NavLink>
+                <img src={npmIcon} alt="Redux Icon" height="80" width="80" />
               </Box>
               <Typography variant="h3" alignContent="center" paddingLeft={3}>
-                Redux
+                Others
               </Typography>
             </Stack>
           </Grid>
           <Grid container xs={8}>
             <Stack direction="column">
               <Typography variant="h6">
-                {bull}Configuring a store that stores all the required reducers
-                (Slices).
+                {bull}Axios: Used for making api calls instead of fetch.
               </Typography>
               <Typography variant="h6">
-                {bull}Creating State Slices using CreateSlice method to manage
-                data across our components. Which also handles api calls via
-                Axios.
+                {bull}React-Hook-Form: used for creating and managing forms
+                (Login/Signup forms).
               </Typography>
               <Typography variant="h6">
-                {bull}Providing the Redux Store to react via Provider.
+                {bull}React-Toastify: used for creating toast messages for
+                errors.
+              </Typography>
+              <Typography variant="h6">
+                {bull}React-Typed: used for creating the typewritter effect at
+                the initial application loading screen.
               </Typography>
             </Stack>
           </Grid>

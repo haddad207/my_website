@@ -1,5 +1,5 @@
 import { Avatar, CssBaseline, Grid, Paper, Stack, styled } from "@mui/material";
-import reactIcon from "../../assets/images/react-icon.png";
+import reactIcon from "../../assets/images/react/react-icon.png";
 import jsIcon from "../../assets/images/js-icon.png";
 import tsIcon from "../../assets/images/ts-icon.png";
 import nodeIcon from "../../assets/images/node-icon.png";
@@ -59,10 +59,10 @@ const gridfy = () => {
           transition={transition}
         >
           {hovering("React Icon", reactIcon, "/react")}
-          {hovering("JavaScript Icon", jsIcon, "/ts")}
-          {hovering("TypeScript Icon", tsIcon, "/ts")}
-          {hovering("Node Icon", nodeIcon, "/ts")}
-          {hovering("Express Icon", expressJsIcon, "/ts")}
+          {hovering("JavaScript Icon", jsIcon, "/node")}
+          {hovering("TypeScript Icon", tsIcon, "/node")}
+          {hovering("Node Icon", nodeIcon, "/node")}
+          {hovering("Express Icon", expressJsIcon, "/node")}
           {hovering("C# Icon", cSharpIcon, "/csharp")}
           {hovering("C++ Icon", cPlusIcon, "/ue5")}
           {hovering("Unreal Engine 5 Icon", unrealEngineIcon, "/ue5")}

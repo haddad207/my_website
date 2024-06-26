@@ -1,23 +1,13 @@
-import {
-  Container,
-  CssBaseline,
-  Grid,
-  Paper,
-  Stack,
-  Typography,
-  styled,
-} from "@mui/material";
+import { Container, CssBaseline, Grid, Stack, Typography } from "@mui/material";
 
-import ReactIcon from "../../../../assets/images/react-icon.png";
+import ReactIcon from "../../../../assets/images/react/react-icon.png";
 import ReactRedux from "./ReactRedux";
-
-const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
-  ...theme.typography.body2,
-  padding: theme.spacing(1),
-  textAlign: "left",
-  color: theme.palette.text.primary,
-}));
+import ReactRouter from "./ReactRouter";
+import FramerMotion from "./FramerMotion";
+import { Item, bull } from "../../../../utils/constants";
+import ReactNPM from "./ReactNPM";
+import MaterialUI from "./MaterialUI";
+import { NavLink } from "react-router-dom";
 
 export default function ReactInfo() {
   return (
@@ -26,24 +16,30 @@ export default function ReactInfo() {
       <Container sx={{ paddingTop: 2 }}>
         <Item>
           <Grid container>
-            <Grid container xs={3}>
+            <Grid container xs={4}>
               <Stack direction="row">
-                <img src={ReactIcon} alt="React Icon" />
-                <Typography variant="h3" alignContent="center">
+                <NavLink to="https://react.dev/">
+                  <img src={ReactIcon} alt="React Icon" />
+                </NavLink>
+                <Typography variant="h3" alignContent="center" paddingLeft={2}>
                   React
                 </Typography>
               </Stack>
             </Grid>
-            <Grid container xs={9}>
+            <Grid container xs={8}>
               <Typography variant="h6" alignContent="center">
-                Below you'll find detailed information about my experience with
-                React.
+                {bull}React is a web library that uses components to build user
+                interfaces. Bellow you'll find my detailed experience in React.
               </Typography>
             </Grid>
           </Grid>
         </Item>
       </Container>
       <ReactRedux />
+      <ReactRouter />
+      <FramerMotion />
+      <MaterialUI />
+      <ReactNPM />
     </>
   );
 }
