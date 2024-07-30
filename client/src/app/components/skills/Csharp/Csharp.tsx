@@ -1,4 +1,11 @@
-import { CssBaseline, Container, Grid, Stack, Typography } from "@mui/material";
+import {
+  CssBaseline,
+  Container,
+  Grid,
+  Stack,
+  Typography,
+  Divider,
+} from "@mui/material";
 import { NavLink } from "react-router-dom";
 import { Item, bull } from "../../../../utils/constants";
 
@@ -38,6 +45,10 @@ export default function Csharp() {
       <Entity />
       <Identity />
       <SignalR />
+      <Container sx={{ paddingTop: 4 }}>
+        <Typography variant="h2">Courses:</Typography>
+        <Divider />
+      </Container>
     </>
   );
 }

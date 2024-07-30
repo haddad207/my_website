@@ -16,7 +16,7 @@ export default function NodeNPM() {
                 </NavLink>
               </Box>
               <Typography variant="h3" alignContent="center" paddingLeft={3}>
-                Express Packages
+                Packages
               </Typography>
             </Stack>
           </Grid>

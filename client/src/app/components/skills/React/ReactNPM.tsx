@@ -7,7 +7,7 @@ export default function ReactNPM() {
     <Container sx={{ paddingTop: 4 }}>
       <Item>
         <Grid container>
-          <Grid container xs={4}>
+          <Grid item xs={4}>
             <Stack direction="row" paddingLeft={1} alignContent="center">
               <Box alignContent="center">
                 <img src={npmIcon} alt="Redux Icon" height="80" width="80" />
@@ -17,7 +17,7 @@ export default function ReactNPM() {
               </Typography>
             </Stack>
           </Grid>
-          <Grid container xs={8}>
+          <Grid item xs={8}>
             <Stack direction="column">
               <Typography variant="h6">
                 {bull}Axios: Used for making api calls instead of fetch.

@@ -1,4 +1,11 @@
-import { Container, CssBaseline, Grid, Stack, Typography } from "@mui/material";
+import {
+  Container,
+  CssBaseline,
+  Divider,
+  Grid,
+  Stack,
+  Typography,
+} from "@mui/material";
 
 import ReactIcon from "../../../../assets/images/react/react-icon.png";
 import ReactRedux from "./ReactRedux";
@@ -16,7 +23,7 @@ export default function ReactInfo() {
       <Container sx={{ paddingTop: 2 }}>
         <Item>
           <Grid container>
-            <Grid container xs={4}>
+            <Grid item xs={4}>
               <Stack direction="row">
                 <NavLink to="https://react.dev/">
                   <img src={ReactIcon} alt="React Icon" />
@@ -26,7 +33,7 @@ export default function ReactInfo() {
                 </Typography>
               </Stack>
             </Grid>
-            <Grid container xs={8}>
+            <Grid item xs={8}>
               <Typography variant="h6" alignContent="center">
                 {bull}React is a web library that uses components to build user
                 interfaces. Bellow you'll find my detailed experience in React.
@@ -40,6 +47,10 @@ export default function ReactInfo() {
       <FramerMotion />
       <MaterialUI />
       <ReactNPM />
+      <Container sx={{ paddingTop: 4 }}>
+        <Typography variant="h2">Courses:</Typography>
+        <Divider />
+      </Container>
     </>
   );
 }

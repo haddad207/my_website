@@ -1,122 +1,71 @@
-import { Avatar, CssBaseline, Grid, Paper, Stack, styled } from "@mui/material";
-import reactIcon from "../../assets/images/react/react-icon.png";
-import jsIcon from "../../assets/images/js-icon.png";
-import tsIcon from "../../assets/images/ts-icon.png";
-import nodeIcon from "../../assets/images/node-icon.png";
+import {
+  Avatar,
+  Card,
+  CardContent,
+  CssBaseline,
+  Grid,
+  Stack,
+  Typography,
+} from "@mui/material";
 import myPhoto from "../../assets/images/my_photo.jpg";
-import cSharpIcon from "../../assets/images/csharp-icon.png";
-import cPlusIcon from "../../assets/images/cplus-icon.png";
-import pythonIcon from "../../assets/images/python-icon.png";
-import djangoIcon from "../../assets/images/django-icon.png";
-import javaIcon from "../../assets/images/java-icon.png";
-import kubernetesIcon from "../../assets/images/k8s-icon.png";
-import dockerIcon from "../../assets/images/docker-icon.png";
-import mongoDbIcon from "../../assets/images/mongodb-icon.png";
-import sqlIcon from "../../assets/images/sql-icon.png";
-import unrealEngineIcon from "../../assets/images/unrealengine-icon.png";
-import springBootIcon from "../../assets/images/springboot-icon.png";
-import awsIcon from "../../assets/images/aws-icon.png";
-import linuxIcon from "../../assets/images/linux-icon.png";
-import ansibleIcon from "../../assets/images/ansible-icon.png";
-import jenkinsIcon from "../../assets/images/jenkins-icon.png";
-import expressJsIcon from "../../assets/images/expressjs-icon.png";
+import Icons from "./Icons";
+import { ReactTyped } from "react-typed";
+import useWindowDimensions from "../../utils/windowDimensions";
 
-import { motion } from "framer-motion";
-import { NavLink } from "react-router-dom";
 // import myPhoto from "../../assets/images/my_photo.jpg";
 
-const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
-  ...theme.typography.body2,
-  padding: theme.spacing(1),
-  textAlign: "left",
-  color: theme.palette.text.primary,
-}));
-
-const transition = { duration: 2, ease: "easeInOut" };
-
-const hovering = (title: string, icon: string, nav: string) => {
-  return (
-    <NavLink to={nav}>
-      <motion.img
-        whileHover={{ scale: 1.2 }}
-        alt={title}
-        src={icon}
-        width="100"
-        height="100"
-      />
-    </NavLink>
-  );
-};
-
-const gridfy = () => {
-  return (
-    <>
-      <Stack spacing={2} direction="row">
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={transition}
-        >
-          {hovering("React Icon", reactIcon, "/react")}
-          {hovering("JavaScript Icon", jsIcon, "/node")}
-          {hovering("TypeScript Icon", tsIcon, "/node")}
-          {hovering("Node Icon", nodeIcon, "/node")}
-          {hovering("Express Icon", expressJsIcon, "/node")}
-          {hovering("C# Icon", cSharpIcon, "/csharp")}
-          {hovering("C++ Icon", cPlusIcon, "/ue5")}
-          {hovering("Unreal Engine 5 Icon", unrealEngineIcon, "/ue5")}
-          {hovering("Python Icon", pythonIcon, "/python")}
-          {hovering("Django Icon", djangoIcon, "/django")}
-        </motion.div>
-      </Stack>
-      <Stack spacing={2} direction="row">
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={transition}
-        >
-          {hovering("Java Icon", javaIcon, "/java")}
-          {hovering("SpringBoot Icon", springBootIcon, "/java")}
-          {hovering("AWS Icon", awsIcon, "/cicd")}
-          {hovering("Jenkins Icon", jenkinsIcon, "/cicd")}
-          {hovering("Kubernetes Icon", kubernetesIcon, "/cicd")}
-          {hovering("Docker Icon", dockerIcon, "/cicd")}
-          {hovering("Ansible Icon", ansibleIcon, "/linux-ansible")}
-          {hovering("Linux Icon", linuxIcon, "/linux-ansible")}
-          {hovering("MongoDB Icon", mongoDbIcon, "/databases")}
-          {hovering("SQL Icon", sqlIcon, "/databases")}
-        </motion.div>
-      </Stack>
-    </>
-  );
-};
-
 export default function HomePage() {
+  const { width } = useWindowDimensions();
+
   return (
     <>
       <CssBaseline />
       <Grid container paddingTop={2} paddingRight={5} paddingLeft={5}>
+        <Grid item xs={2} />
         <Grid
-          container
-          xs={4}
+          item
+          xs={8}
           alignContent="center"
           alignItems="center"
           justifyContent="center"
         >
           <Stack spacing={2} direction="row">
-            <Avatar src={myPhoto} sx={{ height: "15vh", width: "15vh" }} />
+            <Avatar src={myPhoto} sx={{ height: "23vh", width: "23vh" }} />
             {/* <img src={myPhoto} height="15vh" width="15vh" /> */}
-            <Item sx={{ width: "relative" }}>
-              <h2>Welcome to my site!</h2>
-              Gaasdsasdasdasdasdsaaaaaaasa asssssssssssss aaaaaaaaaaaaaaaaa
-              ssssssssssssssss rrrrrrrrrrrr
-            </Item>
+            <Card sx={{ minWidth: width / 2, maxWidth: width / 2 }}>
+              <CardContent>
+                <Typography variant="h2">
+                  <ReactTyped
+                    strings={[
+                      "Hi! My name is Fadi Haddad and welcome to my portfolio website!",
+                    ]}
+                    typeSpeed={40}
+                  />
+                </Typography>
+                <Typography variant="h4">
+                  <ReactTyped
+                    startDelay={5000}
+                    strings={[
+                      "I am a highly competent software developer with over 3 years of professional experience. My experience varies from Full-Stack Development, Game Developement and DevOps Engineering! Driven by the thrill for knowledge, complex problem solving and an enthusiastic mindset. With a proficient ability in translating business requirements into software solutions. Constantly enhancing my area of expertise with online courses. Reliable and responsible team player, dedicated for personal and team growth.",
+                    ]}
+                    typeSpeed={20}
+                  />
+                </Typography>
+              </CardContent>
+            </Card>
           </Stack>
         </Grid>
-        <Grid container xs={8}>
-          {gridfy()}
+      </Grid>
+      <Grid container paddingTop={2} paddingRight={5} paddingLeft={5}>
+        <Grid item xs={2} />
+        <Grid item xs={8}>
+          <Typography variant="h4">
+            You can click on the following icons for more details about my
+            relevant experience:
+          </Typography>
+          <Icons resume={false} />
         </Grid>
+        <Grid item xs={2} />
       </Grid>
     </>
   );

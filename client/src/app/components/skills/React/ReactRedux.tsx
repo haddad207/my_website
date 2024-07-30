@@ -9,7 +9,7 @@ export default function ReactRedux() {
     <Container sx={{ paddingTop: 4 }}>
       <Item>
         <Grid container>
-          <Grid container xs={4}>
+          <Grid item xs={4}>
             <Stack direction="row" paddingLeft={1} alignContent="center">
               <Box alignContent="center">
                 <NavLink to="https://redux.js.org/">
@@ -26,7 +26,7 @@ export default function ReactRedux() {
               </Typography>
             </Stack>
           </Grid>
-          <Grid container xs={8}>
+          <Grid item xs={8}>
             <Stack direction="column">
               <Typography variant="h6">
                 {bull}Configuring a store that stores all the required reducers

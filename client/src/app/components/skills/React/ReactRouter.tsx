@@ -9,7 +9,7 @@ export default function ReactRouter() {
     <Container sx={{ paddingTop: 4 }}>
       <Item>
         <Grid container>
-          <Grid container xs={4}>
+          <Grid item xs={4}>
             <Stack direction="row" paddingLeft={1} alignContent="center">
               <Box alignContent="center">
                 <NavLink to="https://reactrouter.com/en/main">
@@ -26,7 +26,7 @@ export default function ReactRouter() {
               </Typography>
             </Stack>
           </Grid>
-          <Grid container xs={8}>
+          <Grid item xs={8}>
             <Stack direction="column">
               <Typography variant="h6" alignContent="center">
                 {bull}React-Router is used to manage url navigation from the

@@ -8,7 +8,7 @@ export default function MaterialUI() {
     <Container sx={{ paddingTop: 4 }}>
       <Item>
         <Grid container>
-          <Grid container xs={4}>
+          <Grid item xs={4}>
             <Stack direction="row" paddingLeft={1} alignContent="center">
               <Box alignContent="center">
                 <img
@@ -28,7 +28,7 @@ export default function MaterialUI() {
               </Typography>
             </Stack>
           </Grid>
-          <Grid container xs={8}>
+          <Grid item xs={8}>
             <Stack direction="column">
               <Typography variant="h6">
                 {bull}Material UI is an open-source React component library that
