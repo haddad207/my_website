@@ -31,8 +31,10 @@ touch .env
 
 Then create the following varialbes inside the .env file:
 
+```bash
 connectionString="YourConnectionString"
 jwtSecret="YourJWTSecretKey"
+```
 
 Please note these are not the correct variables for the application, as it is sensitive information.
 
