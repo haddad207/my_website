@@ -1,6 +1,6 @@
 # My Portfolio Website
 
-My portoflio website is built using Node.js, React and MongoDB.
+My portoflio website is built using Node.js, Express.js, React and MongoDB.
 
 ## Installation
 
