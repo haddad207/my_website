@@ -15,6 +15,7 @@ import Java from "../app/components/skills/Java/Java";
 import Cicd from "../app/components/skills/CICD/Cicd";
 import LinuxAnsible from "../app/components/skills/cmd/LinuxAnsible";
 import Databases from "../app/components/skills/Databases/Databases";
+import Profile from "../app/account/Profile";
 
 export const router = createBrowserRouter([
   {
@@ -37,6 +38,7 @@ export const router = createBrowserRouter([
       { path: "linux-ansible", element: <LinuxAnsible /> },
       { path: "java", element: <Java /> },
       { path: "databases", element: <Databases /> },
+      { path: "profile", element: <Profile /> },
     ],
   },
 ]);

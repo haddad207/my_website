@@ -74,6 +74,7 @@ const signup = async (req: Request, res: Response, next: NextFunction) => {
     name,
     email,
     password: hashedPassword,
+    darkMode: false,
     username,
   });
 
@@ -105,6 +106,8 @@ const signup = async (req: Request, res: Response, next: NextFunction) => {
   res.status(201).json({
     userId: createdUser.id,
     username: createdUser.username,
+    name: createdUser.name,
+    email: createdUser.email,
     token: token,
   });
 };
@@ -168,6 +171,8 @@ const login = async (req: Request, res: Response, next: NextFunction) => {
   res.json({
     userId: exisitingUser.id,
     username: exisitingUser.username,
+    name: exisitingUser.name,
+    email: exisitingUser.email,
     token: token,
   });
 };
@@ -226,6 +231,8 @@ const getCurrentUser = async (
   res.json({
     userId: currentUser!.id,
     username: currentUser!.username,
+    name: currentUser!.name,
+    email: currentUser!.email,
     token: token,
   });
 };

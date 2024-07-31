@@ -15,6 +15,10 @@ export const ThemeSlice = createSlice({
   reducers: {
     setThemeMode: (state) => {
       state.darkMode = !state.darkMode;
+      if (!localStorage.getItem("theme")) {
+        localStorage.setItem("theme", JSON.stringify(state.darkMode));
+      }
+      console.log(state.darkMode);
     },
   },
 });

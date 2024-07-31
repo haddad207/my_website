@@ -82,6 +82,7 @@ export default function Login() {
             margin="normal"
             required
             fullWidth
+            label="Password"
             type="password"
             {...register("password", { required: "Password is required" })}
             error={!!errors.password}

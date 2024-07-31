@@ -30,12 +30,25 @@ export default function HomePage() {
           justifyContent="center"
         >
           <Stack spacing={2} direction="row">
-            <Avatar src={myPhoto} sx={{ height: "23vh", width: "23vh" }} />
+            <Avatar
+              src={myPhoto}
+              sx={{
+                height: "23vh",
+                width: "23vh",
+              }}
+            />
             {/* <img src={myPhoto} height="15vh" width="15vh" /> */}
-            <Card sx={{ minWidth: width / 2, maxWidth: width / 2 }}>
+            <Card
+              sx={{
+                minWidth: width / 2,
+                maxWidth: width / 2,
+                boxShadow: "none",
+              }}
+            >
               <CardContent>
                 <Typography variant="h2">
                   <ReactTyped
+                    showCursor={false}
                     strings={[
                       "Hi! My name is Fadi Haddad and welcome to my portfolio website!",
                     ]}
@@ -44,6 +57,7 @@ export default function HomePage() {
                 </Typography>
                 <Typography variant="h4">
                   <ReactTyped
+                    showCursor={false}
                     startDelay={5000}
                     strings={[
                       "I am a highly competent software developer with over 3 years of professional experience. My experience varies from Full-Stack Development, Game Developement and DevOps Engineering! Driven by the thrill for knowledge, complex problem solving and an enthusiastic mindset. With a proficient ability in translating business requirements into software solutions. Constantly enhancing my area of expertise with online courses. Reliable and responsible team player, dedicated for personal and team growth.",

@@ -118,7 +118,16 @@ function NaviBar() {
               </Button>
             ))}
           </Box>
-          {user ? null : height > 1000 ? (
+          {user ? (
+            <Typography
+              textAlign="center"
+              component={NavLink}
+              to="/Profile"
+              sx={{ p: 2, color: "inherit", textDecoration: "none" }}
+            >
+              Profile
+            </Typography>
+          ) : height > 1000 ? (
             <>
               <Typography
                 textAlign="center"

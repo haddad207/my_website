@@ -95,9 +95,9 @@ export default function Resume() {
       </Box>
       <CustomTabPanel value={value} index={0}>
         <Grid container>
-          <Grid item xs={4} />
+          <Grid item xs={width > 1920 ? 4 : 3} />
 
-          <Grid item xs={4}>
+          <Grid item paddingLeft={4}>
             <Document
               file={resumePDF}
               onLoadSuccess={onDocumentLoadSuccess}
@@ -110,31 +110,31 @@ export default function Resume() {
               )}
             </Document>
 
-            <Box textAlign="match-parent" paddingLeft={4}>
+            <Box textAlign="match-parent" paddingTop={2}>
               <Button onClick={onButtonClick} variant="contained">
                 Download Resume
               </Button>
             </Box>
           </Grid>
-          <Grid item xs={4} />
+          <Grid item xs={width > 1920 ? 4 : 3} />
         </Grid>
         <Grid container>
-          <Grid item xs={4} />
-          <Grid item xs={4}>
+          <Grid item xs={width > 1920 ? 4 : 3} />
+          <Grid item xs={width > 1920 ? 4 : 6}>
             <Typography variant="h6" paddingLeft={4} paddingTop={4}>
               You can click on the following icons for more details about my
               relevant experience:
             </Typography>
             <Icons resume={true} />
           </Grid>
-          <Grid item xs={4} />
+          <Grid item xs={width > 1920 ? 4 : 3} />
         </Grid>
       </CustomTabPanel>
       <CustomTabPanel value={value} index={1}>
         <Grid container paddingTop={0}>
-          <Grid item xs={4} />
+          <Grid item xs={width > 1920 ? 4 : 3} />
 
-          <Grid item xs={4}>
+          <Grid item paddingLeft={4}>
             <Document
               file={DevopsPDF}
               onLoadSuccess={onDocumentLoadSuccess}
@@ -147,24 +147,24 @@ export default function Resume() {
               )}
             </Document>
 
-            <Box textAlign="match-parent" paddingLeft={4}>
+            <Box paddingTop={2} textAlign="match-parent">
               <Button onClick={onButtonClick} variant="contained">
                 Download Resume
               </Button>
             </Box>
           </Grid>
-          <Grid item xs={4} />
+          <Grid item xs={width > 1920 ? 4 : 3} />
         </Grid>
         <Grid container>
-          <Grid item xs={4} />
-          <Grid item xs={4}>
+          <Grid item xs={width > 1920 ? 4 : 3} />
+          <Grid item xs={width > 1920 ? 4 : 6}>
             <Typography variant="h6" paddingLeft={4} paddingTop={4}>
               You can click on the following icons for more details about my
               relevant experience:
             </Typography>
             <Icons resume={true} />
           </Grid>
-          <Grid item xs={4} />
+          <Grid item xs={width > 1920 ? 4 : 3} />
         </Grid>
       </CustomTabPanel>
     </>

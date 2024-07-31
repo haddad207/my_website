@@ -8,33 +8,31 @@ import "react-toastify/dist/ReactToastify.css";
 import { CssBaseline } from "@mui/material";
 import Typewriter from "./app/components/Typewriter";
 
-// import { ThemeProvider, createTheme } from "@mui/material";
+import { ThemeProvider, createTheme } from "@mui/material";
 
-// const lightTheme = createTheme({
-//   palette: {
-//     primary: {
-//       main: "#0077b6",
-//     },
-//     background: {
-//       default: "#90E0EF",
-//     },
-//   },
-// });
+const lightTheme = createTheme({
+  palette: {
+    primary: {
+      main: "#0077b6",
+    },
+  },
+});
 
-// const darkTheme = createTheme({
-//   palette: {
-//     primary: {
-//       main: "#051923",
-//     },
-//     background: {
-//       default: "#90E0EF",
-//     },
-//   },
-// });
+const darkTheme = createTheme({
+  palette: {
+    primary: {
+      main: "#051923",
+    },
+    background: {
+      default: "#343940",
+    },
+  },
+});
 
 function App() {
   const dispatch = useAppDispatch();
   const { user } = useAppSelector((state) => state.account);
+  const { darkMode } = useAppSelector((state) => state.theme);
   // console.log(getTheme);
 
   useEffect(() => {
@@ -66,13 +64,15 @@ function App() {
       ) : (
         // </ThemeProvider>
         <>
-          <ToastContainer
-            position="bottom-right"
-            hideProgressBar
-            theme="colored"
-          />
-          <NaviBar />
-          <Outlet />
+          <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
+            <ToastContainer
+              position="bottom-right"
+              hideProgressBar
+              theme="colored"
+            />
+            <NaviBar />
+            <Outlet />
+          </ThemeProvider>
         </>
       )}
     </>
